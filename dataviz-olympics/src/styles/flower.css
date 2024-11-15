@@ -1,0 +1,38 @@
+:root {
+    --bee-path: path("M0,63.8 C400,0,800,0,1060,63.8 C860,127,600,127,0,63.8");
+  }
+  
+  .flower-wrapper {
+    position: relative;
+  }
+  
+  .flower-container {
+    /* Your flower container styling */
+  }
+  
+  .flower-stem {
+    position: relative;
+  }
+  
+  .svg-path {
+    display: none; /* Hide the SVG if you don't want it visible */
+  }
+  
+  .bee {
+    position: absolute;
+    top: 0; /* Adjust as needed */
+    left: 0; /* Adjust as needed */
+    width: 50px; /* Set bee size */
+    offset-path: var(--bee-path);
+    animation: moveBee 5s linear infinite;
+  }
+  
+  @keyframes moveBee {
+    10% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
+  }
+  
