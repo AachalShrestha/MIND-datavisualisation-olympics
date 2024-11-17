@@ -1,0 +1,11 @@
+.continents-wrapper{
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+
+}
+
+.continent-item{
+    text-align: center;
+    width: 100px;
+}

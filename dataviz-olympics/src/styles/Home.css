@@ -1,3 +1,14 @@
-.App{
-    width: 100%;
+.main-wrapper{
+    margin:0% 5%;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items:end;
+    margin-top: 20px;
+}
+
+.header-title{
+    width: 500px;
 }
