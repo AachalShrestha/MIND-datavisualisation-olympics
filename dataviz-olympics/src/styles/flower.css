@@ -1,38 +1,105 @@
-:root {
-    --bee-path: path("M0,63.8 C400,0,800,0,1060,63.8 C860,127,600,127,0,63.8");
+:root{
+  --centerTop: 0%;
+}
+body {
+  height: 100vh;
+  margin: 0;
+  background-color: #f9f9f9;
+}
+
+.flower-wrapper{
+  width: 100%
+}
+
+.flower-container{
+  display: flex;
+  flex-direction: column;
+
+  margin: 18% 15%;
+}
+.flower-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+}
+.stem {
+  height: 150px; 
+  z-index: -1;
+} 
+
+
+.flower {
+  position: relative;
+}
+
+
+
+.flower-center {
+  position: relative;
+  right: 15px;
+  top: -10px;
+  width: 30px;
+  height: 30px;
+  background-color: #FFE2AA;
+  border-radius: 50%;
+  border: #A1708A;
+  z-index: 20 !important;
+}
+
+.extra-center {
+  position: relative;
+  top: 80px;
+  left: -10px;
+}
+
+.petal-container {
+  position: relative;
+  top: -63px;
+  left: 25px;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: -200;
+}
+
+.petal {
+  position: absolute;
+  transform-origin: 50% 100%;
+  width: 15px;
+  height: 60px;
+  background-color: #F2B0CF; 
+  border-radius: 50%;
+  border: 0.1px #A1708A solid;
+}
+
+svg{
+ position: relative;
+ top: -20px;
+}
+
+.bee {
+  position: absolute;
+  top: 0; /* Position the bee relative to its container */
+  left: 0; /* Position the bee relative to its container */
+  width: 50px;
+  offset-path: url(#bee-path); /* Referencing the SVG path by ID */
+  animation: moveBee 5s linear infinite;
+}
+
+@keyframes moveBee {
+  10% {
+    offset-distance: 0%;
   }
-  
-  .flower-wrapper {
-    position: relative;
+  100% {
+    offset-distance: 100%;
   }
-  
-  .flower-container {
-    /* Your flower container styling */
-  }
-  
-  .flower-stem {
-    position: relative;
-  }
-  
-  .svg-path {
-    display: none; /* Hide the SVG if you don't want it visible */
-  }
-  
-  .bee {
-    position: absolute;
-    top: 0; /* Adjust as needed */
-    left: 0; /* Adjust as needed */
-    width: 50px; /* Set bee size */
-    offset-path: var(--bee-path);
-    animation: moveBee 5s linear infinite;
-  }
-  
-  @keyframes moveBee {
-    10% {
-      offset-distance: 0%;
-    }
-    100% {
-      offset-distance: 100%;
-    }
-  }
-  
+}
+
+.path {
+  position: absolute;
+  top: 50%; /* Position the path under the flowers */
+  left: 0;
+  right: 0;
+  z-index: -2;
+}
