@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/flower.css";
 import bee from "../assets/images/bee.svg";
 import path from "../assets/images/Path 247.svg";
 
-const Flower = () => {
+const Flower = ({ selectedContinent = "all" }) => {
   const [flowerData, setFlowerData] = useState([]);
-
+  const navigate = useNavigate();
   // Fetch data from JSON on component mount
   useEffect(() => {
-    fetch("/assets/data/data.json")
+    fetch(`/assets/data/${selectedContinent}.json`)
       .then((response) => response.json())
       .then((data) => {
         // Convert the data object into an array of year-value pairs
@@ -21,7 +22,15 @@ const Flower = () => {
       .catch((error) => {
         console.error("Error loading data:", error);
       });
-  }, []); // Empty dependency array to run only once on mount
+  }, [selectedContinent]); // Empty dependency array to run only once on mount
+
+  //
+  useEffect(() => {
+    if (selectedContinent !== null) {
+      console.log(`Selected continent changed to: ${selectedContinent}`);
+      // Add your custom logic here
+    }
+  }, [selectedContinent]); // Dependency array includes selectedContinent
 
   const renderFlowers = () => {
     let flowerGroups = [];
@@ -56,17 +65,20 @@ const Flower = () => {
       // Create a flower object (will be rendered)
       const flower = (
         <div key={year} className="flower">
-          <div className="flower-center">
-            <div className="petal-container" id={`petal-container-${year}`}>
+          <div
+            className="flower-center"
+            onClick={() => navigate(`/flower/${year}`)}
+          >
+            <div className="petal-container" id={year}>
               <div className="flower-center extra-center"></div>
               {Array.from({ length: numPetals }).map((_, index) => (
                 <div
                   key={index}
-                  className="petal"
+                  className={`petal ${selectedContinent}`}
                   style={{
                     transform: `rotate(${
                       (index * 360) / 100
-                    }deg) translateY(-10px)`,
+                    }deg) translateY(-6px)`,
                   }}
                 ></div>
               ))}
@@ -108,8 +120,22 @@ const Flower = () => {
     <div className="flower-wrapper">
       <div className="flower-container">{renderFlowers()}</div>
       <div className="flower-stem">
-        <img className="bee" src={bee} alt="bee" />
-        <img className="path" src={path} alt="path" />
+        <div className="bee-path-wrapper">
+          <div className="path-wrapper">
+            <img className="path path-one" src={path} alt="path" />
+          </div>
+          <div className="bee-wrapper">
+            <img className="bee bee-one" src={bee} alt="bee" />
+          </div>
+        </div>
+        <div className="bee-path-wrapper">
+          <div className="path-wrapper">
+            <img className="path path-two" src={path} alt="path" />
+          </div>
+          <div className="bee-wrapper">
+            <img className="bee bee-two" src={bee} alt="bee" />
+          </div>
+        </div>
       </div>
     </div>
   );

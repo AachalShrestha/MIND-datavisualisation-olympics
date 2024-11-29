@@ -1,12 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1061.037" height="127.687" viewBox="0 0 1061.037 127.687">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: none;
-        stroke: #707070;
-        stroke-dasharray: 5;
-      }
-    </style>
-  </defs>
-  <path id="Path_34" data-name="Path 34" class="cls-1" d="M2115.041,2045.03s1219.386-147.542,1039.92,33.154" transform="matrix(0.999, 0.035, -0.035, 0.999, -2041.153, -2060.336)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="200" viewBox="0 0 1200 200">
+  <style>
+    .cls-1 {
+      fill: none;
+      stroke: #707070;
+      stroke-dasharray: 5;
+    }
+  </style>
+  <!-- Stretched path with larger width and adjusted coordinates -->
+  <path d="M0,0 C600,-36 1200,8 1060,72" class="cls-1" stroke-width="2"/>
 </svg>

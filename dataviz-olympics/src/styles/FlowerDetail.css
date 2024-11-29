@@ -1,0 +1,39 @@
+
+  .flower-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .flower {
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .detail-flower-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background-color: #FFE2AA;
+    border-radius: 50%;
+    z-index: 10;
+  }
+
+  .detail-flower-center-inner
+  
+  .detail-flower-petal {
+    position:absolute;
+    top: -35px;
+    left: -10px;
+    width: 50px;
+    height: 50px;
+    background-color: pink;
+    outline: 0.5px solid #a1708a;
+    border-radius: 50% 50% 50% 52% / 26% 30% 75% 70%  ;
+    transform-origin: 50% 100%;
+  }
+  

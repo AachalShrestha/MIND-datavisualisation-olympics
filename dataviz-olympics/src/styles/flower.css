@@ -1,21 +1,17 @@
 :root{
   --centerTop: 0%;
+  --bee-path: path("M0,0 C400,-20 800,5 700,50");
+  --bee-two-path: path("M 718 0 C 318 -20 -82 5 18 50"); 
 }
-body {
-  height: 100vh;
-  margin: 0;
-  background-color: #f9f9f9;
-}
-
 .flower-wrapper{
-  width: 100%
+  width: 100%;
 }
 
 .flower-container{
   display: flex;
   flex-direction: column;
 
-  margin: 12% 5%;
+  margin: 10% 10%;
 }
 .flower-group{
   display: flex;
@@ -24,7 +20,7 @@ body {
   position: relative;
 }
 .stem {
-  height: 150px; 
+  height: 80px; 
   z-index: -1;
 } 
 
@@ -39,8 +35,8 @@ body {
   position: relative;
   right: 15px;
   top: -10px;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   background-color: #FFE2AA;
   border-radius: 50%;
   border: #A1708A;
@@ -49,14 +45,20 @@ body {
 
 .extra-center {
   position: relative;
-  top: 80px;
-  left: -10px;
+  top: 75px;
+  left: -5px;
 }
+
+
+svg{
+  position: relative;
+  top: -20px;
+ }
 
 .petal-container {
   position: relative;
   top: -63px;
-  left: 25px;
+  left: 18px;
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
@@ -68,38 +70,149 @@ body {
   transform-origin: 50% 100%;
   width: 15px;
   height: 60px;
-  background-color: #F2B0CF; 
+  background-color: #f2b0cf; 
   border-radius: 50%;
-  border: 0.1px #A1708A solid;
+  outline: 0.5px solid #a1708a;
+  animation: none; /* Default no animation */
 }
 
-svg{
- position: relative;
- top: -20px;
+.petal.animate {
+  animation: shrinkExpand 1s ease-in-out;
+}
+
+/* Animation for shrinking and expanding petals */
+@keyframes shrinkExpand {
+  0% {
+    height: 60px;
+    background-color: currentColor; /* Keep the current color */
+  }
+  50% {
+    height: 0px;
+    background-color: currentColor;
+  }
+  100% {
+    height: 60px;
+    background-color: var(--new-color); /* Change to the new color */
+  }
+}
+
+
+.petal.africa{
+  background-color: #90C9D8;
+  outline: 0.5px solid #7AAAB7;
+}
+
+
+.petal.asia{
+  background-color: #FF8A8A;
+  outline: 0.5px solid #A1708A 
+}
+
+.petal.europe{
+  background-color: #CCE2B9;
+  outline: 0.5px solid #A5B898;
+}
+
+.petal.north-america{
+  background-color: #FFB38E;
+  outline: 0.5px solid #CD834B;
+}
+
+.petal.oceania{
+  background-color: #E5B3D3;
+  outline: 0.5px solid #BB94AF ;
+}
+
+.petal.south-america{
+  background-color: #7286D3;
+  outline: 0.5px solid #5A6BAC;
+}
+
+.petal.africa {
+  --new-color: #90C9D8; /* Define color here */
+}
+
+.petal.asia {
+  --new-color: #FF8A8A;
+}
+
+.petal.europe {
+  --new-color: #CCE2B9;
+}
+
+.petal.north-america {
+  --new-color: #FFB38E;
+}
+
+.petal.oceania {
+  --new-color: #E5B3D3;
+}
+
+.petal.south-america {
+  --new-color: #7286D3;
+}
+/* BEE AND PATH  */
+.bee-wrapper {
+
+ /* Ensure the path is always 80% of the container */
+  overflow: hidden;
 }
 
 .bee {
   position: absolute;
-  top: 0; /* Position the bee relative to its container */
-  left: 0; /* Position the bee relative to its container */
-  width: 50px;
-  offset-path: url(#bee-path); /* Referencing the SVG path by ID */
-  animation: moveBee 5s linear infinite;
+  width: 30px; /* Adjust bee size */
+  
+}
+
+.bee-one{
+  top: 255px;
+  margin-left: 250px;
+  animation: moveBee 8s linear infinite;
+  offset-path: var(--bee-path);
+  offset-rotate: auto;
+}
+
+.bee-two{
+  top: 480px; 
+  transform: scaleY(-1);
+  margin-left: 60px;
+  animation: moveBee 8s linear infinite;
+  offset-path: var(--bee-two-path);
+  offset-rotate: auto;
 }
 
 @keyframes moveBee {
-  10% {
+  0% {
     offset-distance: 0%;
+    opacity: 1;
+  }
+  90%{
+    opacity: 1;
   }
   100% {
     offset-distance: 100%;
+    opacity: 0;
   }
 }
 
-.path {
+.path{
   position: absolute;
-  top: 50%; /* Position the path under the flowers */
-  left: 0;
-  right: 0;
-  z-index: -2;
+  width: 80%;
+  margin-left: 100px;
+}
+
+.path-one{
+  top: 250px;
+}
+
+.path-two {
+  top: 450px;
+  left: -50px;
+  transform: scaleX(-1);
+  transform-origin: center top;
+}
+
+.path-wrapper{
+  display: flex;
+  justify-content: center;
 }

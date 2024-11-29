@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Home from './pages/Home';
+import FlowerDetails from './pages/FlowerDetails';
 
 
 
@@ -10,6 +11,10 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />
+  },
+  {
+    path: '/flowerdetail',
+    element: <FlowerDetails/>
   }
 ]);
 

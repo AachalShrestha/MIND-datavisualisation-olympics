@@ -1,6 +1,6 @@
 .continents-wrapper{
     display: flex;
-    width: 50%;
+    width: 100%;
     justify-content: space-evenly;
 
 }
@@ -8,4 +8,8 @@
 .continent-item{
     text-align: center;
     width: 100px;
+}
+
+.continent-item img{
+    width: 30px;
 }
