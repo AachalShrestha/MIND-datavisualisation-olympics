@@ -1,32 +1,205 @@
 {
-    "1896": "0%",
-    "1900": "2%",
-    "1904": "0%",
-    "1908": "0%",
-    "1912": "0%",
-    "1920": "0%",
-    "1924": "2%",
-    "1928": "2%",
-    "1932": "0%",
-    "1936": "4%",
-    "1948": "5%",
-    "1952": "6%",
-    "1960": "5%",
-    "1964": "4%",
-    "1968": "4%",
-    "1972": "5%",
-    "1976": "1%",
-    "1980": "2%",
-    "1984": "3%",
-    "1988": "6%",
-    "1992": "9%",
-    "1996": "4%",
-    "2000": "8%",
-    "2004": "6%",
-    "2008": "7%",
-    "2012": "4%",
-    "2016": "6%",
-    "2020": "8%",
-    "2024": "10%"
+  "1896": {
+    "percentage": "0%",
+    "gold": "0%",
+    "silver": "0%",
+    "bronze": "0%",
+    "no-medal": "100%"
+  },
+  "1900": {
+    "percentage": "2%",
+    "gold": "1%",
+    "silver": "0%",
+    "bronze": "1%",
+    "no-medal": "98%"
+  },
+  "1904": {
+    "percentage": "0%",
+    "gold": "0%",
+    "silver": "0%",
+    "bronze": "0%",
+    "no-medal": "100%"
+  },
+  "1908": {
+    "percentage": "0%",
+    "gold": "0%",
+    "silver": "0%",
+    "bronze": "0%",
+    "no-medal": "100%"
+  },
+  "1912": {
+    "percentage": "0%",
+    "gold": "0%",
+    "silver": "0%",
+    "bronze": "0%",
+    "no-medal": "100%"
+  },
+  "1920": {
+    "percentage": "0%",
+    "gold": "0%",
+    "silver": "0%",
+    "bronze": "0%",
+    "no-medal": "100%"
+  },
+  "1924": {
+    "percentage": "2%",
+    "gold": "1%",
+    "silver": "0%",
+    "bronze": "1%",
+    "no-medal": "98%"
+  },
+  "1928": {
+    "percentage": "2%",
+    "gold": "1%",
+    "silver": "0%",
+    "bronze": "1%",
+    "no-medal": "98%"
+  },
+  "1932": {
+    "percentage": "0%",
+    "gold": "0%",
+    "silver": "0%",
+    "bronze": "0%",
+    "no-medal": "100%"
+  },
+  "1936": {
+    "percentage": "4%",
+    "gold": "1%",
+    "silver": "1%",
+    "bronze": "2%",
+    "no-medal": "96%"
+  },
+  "1948": {
+    "percentage": "5%",
+    "gold": "1%",
+    "silver": "1%",
+    "bronze": "3%",
+    "no-medal": "95%"
+  },
+  "1952": {
+    "percentage": "6%",
+    "gold": "1%",
+    "silver": "2%",
+    "bronze": "3%",
+    "no-medal": "94%"
+  },
+  "1960": {
+    "percentage": "5%",
+    "gold": "1%",
+    "silver": "2%",
+    "bronze": "2%",
+    "no-medal": "95%"
+  },
+  "1964": {
+    "percentage": "4%",
+    "gold": "1%",
+    "silver": "1%",
+    "bronze": "2%",
+    "no-medal": "96%"
+  },
+  "1968": {
+    "percentage": "4%",
+    "gold": "1%",
+    "silver": "1%",
+    "bronze": "2%",
+    "no-medal": "96%"
+  },
+  "1972": {
+    "percentage": "5%",
+    "gold": "1%",
+    "silver": "2%",
+    "bronze": "2%",
+    "no-medal": "95%"
+  },
+  "1976": {
+    "percentage": "1%",
+    "gold": "0%",
+    "silver": "0%",
+    "bronze": "1%",
+    "no-medal": "99%"
+  },
+  "1980": {
+    "percentage": "2%",
+    "gold": "0%",
+    "silver": "1%",
+    "bronze": "1%",
+    "no-medal": "98%"
+  },
+  "1984": {
+    "percentage": "3%",
+    "gold": "1%",
+    "silver": "1%",
+    "bronze": "1%",
+    "no-medal": "97%"
+  },
+  "1988": {
+    "percentage": "6%",
+    "gold": "2%",
+    "silver": "2%",
+    "bronze": "2%",
+    "no-medal": "94%"
+  },
+  "1992": {
+    "percentage": "9%",
+    "gold": "3%",
+    "silver": "3%",
+    "bronze": "3%",
+    "no-medal": "91%"
+  },
+  "1996": {
+    "percentage": "4%",
+    "gold": "1%",
+    "silver": "1%",
+    "bronze": "2%",
+    "no-medal": "96%"
+  },
+  "2000": {
+    "percentage": "8%",
+    "gold": "2%",
+    "silver": "3%",
+    "bronze": "3%",
+    "no-medal": "92%"
+  },
+  "2004": {
+    "percentage": "6%",
+    "gold": "1%",
+    "silver": "2%",
+    "bronze": "3%",
+    "no-medal": "94%"
+  },
+  "2008": {
+    "percentage": "7%",
+    "gold": "2%",
+    "silver": "2%",
+    "bronze": "3%",
+    "no-medal": "93%"
+  },
+  "2012": {
+    "percentage": "4%",
+    "gold": "1%",
+    "silver": "1%",
+    "bronze": "2%",
+    "no-medal": "96%"
+  },
+  "2016": {
+    "percentage": "6%",
+    "gold": "1%",
+    "silver": "2%",
+    "bronze": "3%",
+    "no-medal": "94%"
+  },
+  "2020": {
+    "percentage": "8%",
+    "gold": "2%",
+    "silver": "3%",
+    "bronze": "3%",
+    "no-medal": "92%"
+  },
+  "2024": {
+    "percentage": "10%",
+    "gold": "3%",
+    "silver": "3%",
+    "bronze": "4%",
+    "no-medal": "90%"
   }
-  
+}
