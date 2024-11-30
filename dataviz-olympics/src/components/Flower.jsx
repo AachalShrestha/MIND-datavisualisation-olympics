@@ -15,7 +15,7 @@ const Flower = ({ selectedContinent = "all" }) => {
         // Convert the data object into an array of year-value pairs
         const formattedData = Object.entries(data).map(([year, value]) => ({
           year,
-          percentage: parseFloat(value),
+          percentage: parseFloat(value.percentage), // Ensure accessing the percentage correctly
         }));
         setFlowerData(formattedData); // Store data in state
       })
@@ -67,7 +67,7 @@ const Flower = ({ selectedContinent = "all" }) => {
         <div key={year} className="flower">
           <div
             className="flower-center"
-            onClick={() => navigate(`/flower/${year}`)}
+            onClick={() => navigate(`/${selectedContinent}/${year}`)}
           >
             <div className="petal-container" id={year}>
               <div className="flower-center extra-center"></div>

@@ -21,7 +21,7 @@ const continentImages = [
   {
     src: require("../assets/images/continents/Europe.png"),
     alt: "Europe",
-    name: "aurope",
+    name: "europe",
   },
   {
     src: require("../assets/images/continents/North-America.png"),

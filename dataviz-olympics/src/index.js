@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     element: <Home />
   },
   {
-    path: '/flowerdetail',
+    path: '/:continent/:year',
     element: <FlowerDetails/>
   }
 ]);

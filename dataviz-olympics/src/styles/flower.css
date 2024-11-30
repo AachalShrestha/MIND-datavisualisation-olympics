@@ -24,6 +24,14 @@
   z-index: -1;
 } 
 
+.flower-field{
+  width: 100%;
+  height: 100vh;
+}
+
+.flower-details{
+  position: absolute;
+}
 
 .flower {
   position: relative;

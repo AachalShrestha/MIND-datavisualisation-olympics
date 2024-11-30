@@ -1,39 +1,78 @@
+.flower-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 
+@keyframes {
+  0%{
+    :left5
+  }
+} */
 
-  .flower-details {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .flower {
-    position: relative;
-    width: 200px;
-    height: 200px;
-  }
-  
-  .detail-flower-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30px;
-    height: 30px;
-    background-color: #FFE2AA;
-    border-radius: 50%;
-    z-index: 10;
-  }
+.flower {
+  position: relative;
+/*   width: 100vh;
+  height: 100vh; */
+}
 
-  .detail-flower-center-inner
-  
-  .detail-flower-petal {
-    position:absolute;
-    top: -35px;
-    left: -10px;
-    width: 50px;
-    height: 50px;
-    background-color: pink;
-    outline: 0.5px solid #a1708a;
-    border-radius: 50% 50% 50% 52% / 26% 30% 75% 70%  ;
-    transform-origin: 50% 100%;
-  }
-  
+.detail-flower-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15px; /* Reduced size */
+  height: 15px; /* Reduced size */
+  background-color: #FFE2AA;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.detail-flower-center-inner {
+  position: relative;
+  left: -2px;
+  top: -4px;
+  z-index: 120; 
+  width: 12px; /* Reduced size */
+  height: 12px; /* Reduced size */
+  background-color: #FFE2AA; 
+  border-radius: 50%;
+}
+
+.detail-flower-petal {
+  position: absolute;
+  top: -20px; /* Adjusted for smaller size */
+  left: -5px; /* Adjusted for smaller size */
+  width: 20px; /* Reduced size */
+  height: 23px; /* Reduced size */
+  /* background-color: pink !important; */
+  outline: 0.5px solid #a1708a;
+  border-radius: 50% 50% 50% 52% / 26% 30% 75% 70%;
+  transform-origin: 50% 100%;
+}
+
+.detail-flower-petal.gold{  
+  background-color: #FCCEA0;
+  outline: 0.5px solid #FC9C49;
+}
+
+.detail-flower-petal.silver{
+  background-color: #B9B9B9; 
+  outline: 0.5px solid #A19FA0;
+}
+
+.detail-flower-petal.bronze{
+  background-color: #AB886D; 
+  outline: 0.5px solid #8A6950;
+}
+
+.detail-flower-petal.no-medal{
+  background-color: #F0D4E1; 
+  outline: 0.5px solid #C298AE;
+}
+/* LEGEND */
+.flower-detail-legend{
+  position: absolute;
+  top: 20PX;
+  right: 5%;
+}
