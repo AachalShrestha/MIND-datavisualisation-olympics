@@ -6,7 +6,9 @@ import path from "../assets/images/Path 247.svg";
 
 const Flower = ({ selectedContinent = "all" }) => {
   const [flowerData, setFlowerData] = useState([]);
+
   const navigate = useNavigate();
+  console.log(selectedContinent);
   // Fetch data from JSON on component mount
   useEffect(() => {
     fetch(`/assets/data/${selectedContinent}.json`)

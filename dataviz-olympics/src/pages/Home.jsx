@@ -6,7 +6,7 @@ import "../styles/Home.css";
 import "../styles/index.css";
 
 function App() {
-  const [selectedContinent, setSelectedContinent] = useState(null);
+  const [selectedContinent, setSelectedContinent] = useState("all");
   const [isOpen, setIsOpen] = useState(false); // Move `isOpen` state here
 
   return (

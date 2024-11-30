@@ -2,7 +2,7 @@
   margin-bottom: 32px;
 }
 .sidenav {
-  height: 100%;
+  height: 100vh;
   position: fixed;
   z-index: 100;
   top: 0;
@@ -10,7 +10,7 @@
   background-color: #f9f9f9;
   overflow-x: hidden;
   transition: right 0.5s ease; /* Smooth slide effect */
-  padding-top: 60px;
+  padding-top: 20px;
   width: 250px; 
   display: flex;
   flex-direction: column;
@@ -24,6 +24,12 @@
   color: black;
   display: block;
   transition: color 0.3s ease;
+  margin-bottom: 0px;
+}
+
+.sidenav p{
+  font-size: 12px;
+  margin: 15px 0 0 0;
 }
 
 .sidenav div{
@@ -38,6 +44,11 @@
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+  margin-bottom: 0;
+}
+
+.sidenav img{
+  max-height: 50px;
 }
 
 .sidenav-title {

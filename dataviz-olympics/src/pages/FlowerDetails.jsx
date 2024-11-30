@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import FlowerDetailsFlower from "../components/FlowerDetailFlower"; // Import the flower component
+import FlowerDetailsFlower from "../components/FlowerDetailFlower";
+import arrow from "../assets/images/arrow.png";
 import "../styles/FlowerDetail.css";
+import "../styles/flower.css";
 
 function FlowerDetails() {
+  const navigate = useNavigate();
   const { continent, year } = useParams();
   const [flowerData, setFlowerData] = useState(null); // Store percentages for the year
   const [flowers, setFlowers] = useState([]); // Store flower positions and categories
+  const [olympicName, setOlympicName] = useState();
+  const [percentage, setPercentage] = useState();
   let previousX = 0;
 
   // Define excluded areas (as percentage values)
   const excludedAreas = [
-    { x: 30, y: 30, width: 40, height: 40 }, // Middle area to avoid
-    { x: 70, y: 0, width: 30, height: 30 }, // Top-right area to avoid
+    { x: 40, y: 30, width: 30, height: 30 }, // Middle area to avoid
+    { x: 70, y: 0, width: 30, height: 35 }, // Top-right area to avoid
   ];
 
   // Function to check if the position is inside any excluded area
@@ -47,15 +53,12 @@ function FlowerDetails() {
       .then((data) => {
         // Extract data for the specific year
         const yearData = data[year];
-        console.log(year);
         if (yearData) {
           setFlowerData(yearData); // Store the year object
         }
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, [continent, year]);
-
-  console.log(flowerData);
 
   useEffect(() => {
     if (flowerData) {
@@ -67,9 +70,9 @@ function FlowerDetails() {
         const count = Math.round(
           (parseFloat(flowerData[category]) / 100) * totalFlowers
         );
-        console.log("count", count);
         for (let i = 0; i < count; i++) {
-          const { left, top } = generateRandomPosition(); // Get random position
+          const { left, top } = generateRandomPosition();
+          console.log(`Flower ${category} position: left=${left}, top=${top}`); // Debug // Get random position
           flowersArray.push({
             category,
             left,
@@ -83,19 +86,69 @@ function FlowerDetails() {
       setFlowers(flowersArray);
     }
   }, [flowerData]);
+  console.log(flowerData);
 
-  console.log("flowerdata", flowerData);
+  // FETCH OLYMPIC NAME
+  useEffect(() => {
+    fetch(`/assets/data/names.json`)
+      .then((resp) => resp.json())
+      .then((data) => {
+        // Extract data for the specific year
+        const yearName = data[year];
+        if (yearName) {
+          setOlympicName(yearName); // Store the year object
+        }
+      })
+      .catch((error) => console.error("Error fetching data:", error));
+  });
+  console.log(olympicName);
+  //BIG FLOWER IN MIDDLE
+  const bigFlower = flowerData &&
+    flowerData.percentage &&
+    !isNaN(parseFloat(flowerData.percentage)) && (
+      <div key={year} className="big-flower">
+        <div className="big-flower-center">
+          <div className="petal-container" id={year}>
+            <div className="flower-center big-flower-extra-center"></div>
+            {Array.from({ length: parseInt(flowerData.percentage, 10) }).map(
+              (_, index) => (
+                <div
+                  key={index}
+                  className={`big-flower-petal petal ${continent}`} // Assuming continent as a class to style petals
+                  style={{
+                    transform: `rotate(${
+                      (index * 360) / 100
+                    }deg) translateY(-6px)`,
+                  }}
+                ></div>
+              )
+            )}
+          </div>
+        </div>
+      </div>
+    );
 
   return (
     <div className="flower-detail-wrapper">
+      {/* TITLE AND BACK BUTTON */}
+      <div className="flower-detail-header" onClick={() => navigate("/")}>
+        <div className="flower-detail-go-back">
+          <img src={arrow} alt="back arrow"></img>
+          <p>Back</p>
+        </div>
+        <h1>{olympicName}</h1>
+        <h3>{continent.charAt(0).toUpperCase() + continent.slice(1)}</h3>
+      </div>
+      {bigFlower}
       {flowers.length > 0 && (
         <div className="flower-field">
           {flowers.map((flower, index) => (
             <FlowerDetailsFlower
+              key={index}
               category={flower.category}
               style={{
-                left: `${flower.left}%`,
-                top: `${flower.top}%`,
+                "--flower-left": `${flower.left}%`, // Correctly pass the custom property
+                "--flower-top": `${flower.top}%`,
               }}
             />
           ))}
@@ -107,15 +160,35 @@ function FlowerDetails() {
         <h3>How to read</h3>
         <div className="flower-detail-legend-properties">
           <div className="flower-detail-legend-property">
+            <FlowerDetailsFlower
+              key={1}
+              category="gold"
+              style={{ position: "relative" }}
+            />
             <p>% of golden medals</p>
           </div>
           <div className="flower-detail-legend-property">
+            <FlowerDetailsFlower
+              key={1}
+              category="silver"
+              style={{ position: "relative" }}
+            />
             <p>% of silver medals</p>
           </div>
           <div className="flower-detail-legend-property">
+            <FlowerDetailsFlower
+              key={1}
+              category="bronze"
+              style={{ position: "relative" }}
+            />
             <p>% of bronze medals</p>
           </div>
           <div className="flower-detail-legend-property">
+            <FlowerDetailsFlower
+              key={1}
+              category="no-medal"
+              style={{ position: "relative" }}
+            />
             <p>% of no medals</p>
           </div>
         </div>
