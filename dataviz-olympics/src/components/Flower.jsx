@@ -6,9 +6,14 @@ import path from "../assets/images/Path 247.svg";
 
 const Flower = ({ selectedContinent = "all" }) => {
   const [flowerData, setFlowerData] = useState([]);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+  const [hoveredFlowerData, setHoveredFlower] = useState([]);
+  const [hoverDivContent, setHoverDivContent] = useState();
 
   const navigate = useNavigate();
   console.log(selectedContinent);
+
   // Fetch data from JSON on component mount
   useEffect(() => {
     fetch(`/assets/data/${selectedContinent}.json`)
@@ -33,6 +38,18 @@ const Flower = ({ selectedContinent = "all" }) => {
       // Add your custom logic here
     }
   }, [selectedContinent]); // Dependency array includes selectedContinent
+
+  //WHEN HOVERED ON FLOWER
+  useEffect(() => {
+    if (isHovered) {
+      setHoverDivContent(hoveredFlowerData);
+      console.log(hoveredFlowerData);
+    }
+  });
+
+  const handleMouseMove = (e) => {
+    setMousePosition({ x: e.clientX, y: e.clientY });
+  };
 
   const renderFlowers = () => {
     let flowerGroups = [];
@@ -66,7 +83,15 @@ const Flower = ({ selectedContinent = "all" }) => {
 
       // Create a flower object (will be rendered)
       const flower = (
-        <div key={year} className="flower">
+        <div
+          key={year}
+          className="flower"
+          onMouseEnter={() => {
+            setIsHovered(true);
+            setHoveredFlower([year, percentage]);
+          }}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <div
             className="flower-center"
             onClick={() => navigate(`/${selectedContinent}/${year}`)}
@@ -119,7 +144,7 @@ const Flower = ({ selectedContinent = "all" }) => {
   };
 
   return (
-    <div className="flower-wrapper">
+    <div className="flower-wrapper" onMouseMove={handleMouseMove}>
       <div className="flower-container">{renderFlowers()}</div>
       <div className="flower-stem">
         <div className="bee-path-wrapper">
@@ -139,6 +164,25 @@ const Flower = ({ selectedContinent = "all" }) => {
           </div>
         </div>
       </div>
+
+      {/* Hovered div that follows the mouse */}
+      {isHovered && (
+        <div
+          className={`hovered-div ${isHovered ? "active" : ""}`} // Add active class for fade effect
+          style={{
+            position: "absolute",
+            top: mousePosition.y - 40 + "px",
+            left: mousePosition.x + 30 + "px",
+            pointerEvents: "none",
+          }}
+        >
+          {/* Customize this div as needed */}
+          <div className="hovered-content">
+            <p>{hoveredFlowerData[0]}</p>
+            <p>{hoveredFlowerData[1]}%</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

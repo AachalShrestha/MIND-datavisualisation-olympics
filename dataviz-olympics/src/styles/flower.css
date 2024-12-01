@@ -226,3 +226,19 @@ svg{
   display: flex;
   justify-content: center;
 }
+
+
+/* HOVER CONTENT */
+.hovered-div {
+  z-index: 100;
+  opacity: 0;               /* Start with invisible */
+  transition: opacity 1s ease-in-out; /* Smooth fade-in and fade-out */
+}
+
+.hovered-div.active {
+  opacity: 1;    
+  transition: opacity 1s ease-in-out;            /* Fully visible when active */
+}
+.hovered-content p{
+  margin: 0;
+}
