@@ -20,6 +20,13 @@
     "bronze": "0%",
     "no-medal": "100%"
   },
+  "1906": {
+    "percentage": "18.2%",
+    "gold": "18.2%",
+    "silver": "18.2%",
+    "bronze": "18.2%",
+    "no-medal": "45.5%"
+  },
   "1908": {
     "percentage": "2.0%",
     "gold": "12.8%",
