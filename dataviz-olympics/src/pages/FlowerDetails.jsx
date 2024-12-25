@@ -12,13 +12,30 @@ function FlowerDetails() {
   const [flowerData, setFlowerData] = useState(null); // Store percentages for the year
   const [flowers, setFlowers] = useState([]); // Store flower positions and categories
   const [olympicName, setOlympicName] = useState();
-  const [percentage, setPercentage] = useState();
-  let previousX = 0;
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [hoveredCategory, setHoveredCategory] = useState(null);
+  const [hoveredData, setHoveredData] = useState(null);
 
+  ///////// HANDLING MOUSE AND HOVER /////////
+  const handleFlowerHover = (category, percentage) => {
+    console.log("should be hovering", category, percentage);
+    if (category && percentage != null) {
+      console.log("isnotnul");
+      setHoveredCategory(category);
+      setHoveredData({ category, percentage }); // Store both properties
+      console.log(`Hovered Category: ${category}, Percentage: ${percentage}`);
+    } else {
+      setHoveredCategory(null);
+      setHoveredData(null); // Reset when no hover
+    }
+  };
+  let previousX = 3;
+
+  ///////// FLOWER POSITIONS
   // Define excluded areas (as percentage values)
   const excludedAreas = [
-    { x: 40, y: 30, width: 30, height: 30 }, // Middle area to avoid
-    { x: 70, y: 0, width: 30, height: 35 }, // Top-right area to avoid
+    { x: 40, y: 32, width: 20, height: 35 }, // Middle area to avoid
+    { x: 70, y: 0, width: 30, height: 47 }, // Top-right area to avoid
   ];
 
   // Function to check if the position is inside any excluded area
@@ -40,8 +57,8 @@ function FlowerDetails() {
   const generateRandomPosition = () => {
     let left, top;
     do {
-      left = previousX + 3; // Random left position between 3% and 95%
-      top = Math.random() * (95 - 20) + 20; // Random top position between 3% and 95%
+      left = previousX + 1; // Random left position between 3% and 95%
+      top = Math.random() * (95 - 30) + 30; // Random top position between 3% and 95%
     } while (isInsideExcludedArea(left, top)); // Regenerate if inside excluded area
 
     return { left, top };
@@ -67,26 +84,25 @@ function FlowerDetails() {
       const categories = ["gold", "silver", "bronze", "no-medal"];
 
       categories.forEach((category) => {
-        const count = Math.round(
-          (parseFloat(flowerData[category]) / 100) * totalFlowers
-        );
-        for (let i = 0; i < count; i++) {
-          const { left, top } = generateRandomPosition();
-          console.log(`Flower ${category} position: left=${left}, top=${top}`); // Debug // Get random position
-          flowersArray.push({
-            category,
-            left,
-            top,
-          });
-
-          previousX += 0.95;
+        const percentage = parseFloat(flowerData[category]); // Ensure this is a valid number
+        if (!isNaN(percentage)) {
+          const count = Math.round((percentage / 100) * totalFlowers);
+          for (let i = 0; i < count; i++) {
+            const { left, top } = generateRandomPosition(); // Get random position
+            flowersArray.push({
+              category,
+              percentage,
+              left,
+              top,
+            });
+            previousX += 0.95;
+          }
         }
       });
 
-      setFlowers(flowersArray);
+      setFlowers(flowersArray); // Update the state with generated flowers
     }
   }, [flowerData]);
-  console.log(flowerData);
 
   // FETCH OLYMPIC NAME
   useEffect(() => {
@@ -101,12 +117,20 @@ function FlowerDetails() {
       })
       .catch((error) => console.error("Error fetching data:", error));
   });
-  console.log(olympicName);
+
+  // HANDLE MOUSE MOVE
+
+  const handleMouseMove = (e) => {
+    setMousePosition({
+      x: e.clientX,
+      y: e.clientY,
+    });
+  };
   //BIG FLOWER IN MIDDLE
   const bigFlower = flowerData &&
     flowerData.percentage &&
     !isNaN(parseFloat(flowerData.percentage)) && (
-      <div key={year} className="big-flower">
+      <div key={year} className="big-flower big-flower-wrapper">
         <div className="big-flower-center">
           <div className="petal-container" id={year}>
             <div className="flower-center big-flower-extra-center"></div>
@@ -141,15 +165,17 @@ function FlowerDetails() {
       </div>
       {bigFlower}
       {flowers.length > 0 && (
-        <div className="flower-field">
+        <div className="flower-field" onMouseMove={handleMouseMove}>
           {flowers.map((flower, index) => (
             <FlowerDetailsFlower
               key={index}
               category={flower.category}
+              percentage={flower.percentage}
               style={{
-                "--flower-left": `${flower.left}%`, // Correctly pass the custom property
+                "--flower-left": `${flower.left}%`,
                 "--flower-top": `${flower.top}%`,
               }}
+              onHover={handleFlowerHover} // Pass the callback here
             />
           ))}
         </div>
@@ -164,6 +190,7 @@ function FlowerDetails() {
               key={1}
               category="gold"
               style={{ position: "relative" }}
+              isMenuFlower={true}
             />
             <p>% of golden medals</p>
           </div>
@@ -172,6 +199,7 @@ function FlowerDetails() {
               key={1}
               category="silver"
               style={{ position: "relative" }}
+              isMenuFlower={true}
             />
             <p>% of silver medals</p>
           </div>
@@ -180,6 +208,7 @@ function FlowerDetails() {
               key={1}
               category="bronze"
               style={{ position: "relative" }}
+              isMenuFlower={true}
             />
             <p>% of bronze medals</p>
           </div>
@@ -188,11 +217,30 @@ function FlowerDetails() {
               key={1}
               category="no-medal"
               style={{ position: "relative" }}
+              isMenuFlower={true}
             />
             <p>% of no medals</p>
           </div>
         </div>
       </div>
+
+      {/* HOVER DIV  */}
+      {hoveredData && (
+        <div
+          className="hovered-div active"
+          style={{
+            position: "absolute",
+            top: mousePosition.y - 40 + "px", // Adjusted offset for top
+            left: mousePosition.x + 30 + "px", // Adjusted offset for left
+            pointerEvents: "none",
+          }}
+        >
+          <div className="hovered-content">
+            <p>{hoveredData.category}</p> {/* Use hoveredData.category */}
+            <p>{hoveredData.percentage}%</p> {/* Use hoveredData.percentage */}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

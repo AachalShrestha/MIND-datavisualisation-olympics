@@ -1,4 +1,7 @@
+
 .flower-details {
+  width: 20px;
+  height: 20px;
   position: absolute; /* Required for left/top to work */
   display: flex;
   justify-content: center;
@@ -84,12 +87,14 @@
 
 .flower-detail-legend-property{
   display: flex;
+  align-items: center;
 }
 
 .flower-detail-legend-property p{
   margin-left: 20px;
 }
 /* BIG FLOWER */
+
 .big-flower{
   position: absolute;
   width: 100%;
@@ -98,7 +103,6 @@
   justify-content: center;
   align-items: center;
   transform: translateY(-40px);
-  z-index: 5;
 }
 
 .big-flower-petal {
@@ -123,7 +127,7 @@
 .flower-detail-header{
   position: absolute;
   margin-left: 5%;
-  z-index: 20;
+  z-index: 21;
 }
 
 .flower-detail-header h1{
@@ -144,4 +148,9 @@
 
 .flower-detail-go-back p{
   margin-left: 10px;
+}
+
+/* HOVER DIV */
+.hovered-div{
+  width: 100px;
 }

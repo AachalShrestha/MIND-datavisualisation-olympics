@@ -86,6 +86,9 @@ svg{
   animation: none; /* Default no animation */
 }
 
+.petal.less-than-one{
+  background-color: transparent !important;
+}
 .petal.animate {
   animation: shrinkExpand 1s ease-in-out;
 }
