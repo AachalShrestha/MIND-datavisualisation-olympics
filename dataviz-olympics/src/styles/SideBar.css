@@ -6,23 +6,20 @@
   position: fixed;
   z-index: 100;
   top: 0;
-  right: -250px; /* Start outside the viewport */
+  right: -300px; /* Start outside the viewport */
   background-color: #f9f9f9;
   overflow-x: hidden;
   transition: right 0.5s ease; /* Smooth slide effect */
   padding-top: 20px;
-  width: 250px; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 300px; 
+
   justify-content: space-evenly;/* Sidebar width remains fixed */
 }
 
-.sidenav div, a {
-  padding: 8px 32px;
+.sidenav a {
+  padding-top: 8px;
   text-decoration: none;
   color: black;
-  display: block;
   transition: color 0.3s ease;
   margin-bottom: 0px;
 }
@@ -32,10 +29,25 @@
   margin: 15px 0 0 0;
 }
 
-.sidenav div{
+.sidenav-container-wrapper{
   display: flex;
   flex-direction: column;
-  align-items: center;
+    
+  justify-content: space-evenly;
+  height: 90%;
+  padding: 15px;
+}
+
+.sidenav-container{
+  display: flex;
+  align-items: baseline;
+}
+
+
+.sidenav-div div{
+  width:120px;
+  text-align: center;
+  margin: 5px;
 }
 
 .sidenav .closebtn {
@@ -75,3 +87,4 @@
     font-size: 18px;
   }
 }
+
