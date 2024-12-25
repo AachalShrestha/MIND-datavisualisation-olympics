@@ -46,11 +46,9 @@ const Flower = ({ selectedContinent = "all" }) => {
       console.log(hoveredFlowerData);
     }
   });
-
   const handleMouseMove = (e) => {
     setMousePosition({ x: e.clientX, y: e.clientY });
   };
-
   const renderFlowers = () => {
     let flowerGroups = [];
     let currentGroup = [];
@@ -58,8 +56,17 @@ const Flower = ({ selectedContinent = "all" }) => {
 
     // Loop over the flower data
     flowerData.forEach(({ year, percentage }) => {
+      let numPetals;
+      let isLessThan1;
       // Calculate number of petals for the flower
-      const numPetals = Math.round((percentage / 100) * 100);
+      console.log("percentage", percentage);
+      if (percentage < 1 && percentage !== 0) {
+        numPetals = 1;
+        isLessThan1 = true;
+      } else if (percentage >= 1) {
+        numPetals = Math.round((percentage / 100) * 100);
+        isLessThan1 = false;
+      }
 
       // Create the stem with SVG
       const svgStem = (
@@ -101,7 +108,9 @@ const Flower = ({ selectedContinent = "all" }) => {
               {Array.from({ length: numPetals }).map((_, index) => (
                 <div
                   key={index}
-                  className={`petal ${selectedContinent}`}
+                  className={`petal ${selectedContinent} ${
+                    isLessThan1 ? "less-than-one" : ""
+                  }`}
                   style={{
                     transform: `rotate(${
                       (index * 360) / 100
