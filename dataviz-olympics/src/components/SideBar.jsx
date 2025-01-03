@@ -6,6 +6,7 @@ import bee from "../assets/images/bee.svg";
 import continent from "../assets/images/continents/Asia.png";
 import flower from "../assets/images/flower-africa.png";
 import emptyPetal from "../assets/images/petal-empty.png";
+import petalHover from "../assets/images/petal-hover.png";
 
 const SideNav = ({ isOpen, setIsOpen }) => {
   // Toggle sidebar visibility
@@ -37,18 +38,18 @@ const SideNav = ({ isOpen, setIsOpen }) => {
           </div>
           <div className="sidenav-container sidenav-div">
             <div>
-              <img src={continent} alt="asia" />
-              <p>Click on a flower to filter by continent</p>
+              <img src={emptyPetal} alt="petal" />
+              <p>Empty petal means less than 1%</p>
             </div>
             <div>
-              <img src={flower} alt="flower-africa" />
-              <p>Click on a flower to find out the distribution of medals</p>
+              <img src={continent} alt="asia" />
+              <p>Click on a flower to filter by continent</p>
             </div>
           </div>
           <div className=" sidenav-container sidenav-div">
             <div>
-              <img src={emptyPetal} alt="petal" />
-              <p>Empty petal means less than 1%</p>
+              <img src={petalHover} alt="flower-africa" />
+              <p>Hover on a flower for the exact percentages</p>
             </div>
             <div>
               <img src={flower} alt="flower-africa" />
