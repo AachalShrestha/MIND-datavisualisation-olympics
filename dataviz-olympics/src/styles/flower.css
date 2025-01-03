@@ -1,6 +1,6 @@
 :root{
   --centerTop: 0%;
-  --bee-path: path("M0,0 C400,-20 800,5 700,50");
+  --bee-path: path("M 0 0 C 400 -20 1013 1 877 72");
   --bee-two-path: path("M 718 0 C 318 -20 -82 5 18 50"); 
 }
 .flower-wrapper{
@@ -77,7 +77,7 @@ svg{
 
 .petal {
   position: absolute;
-  transform-origin: 50% 100%;
+  transform-origin: bottom center;
   width: 15px;
   height: 60px;
   background-color: #f2b0cf; 
@@ -91,21 +91,22 @@ svg{
 }
 .petal.animate {
   animation: shrinkExpand 1s ease-in-out;
+  transform-origin: bottom center; /* Anchor point at the bottom */
 }
 
-/* Animation for shrinking and expanding petals */
 @keyframes shrinkExpand {
   0% {
     height: 60px;
-    background-color: currentColor; /* Keep the current color */
+    transform: scale(1);
   }
   50% {
     height: 0px;
-    background-color: currentColor;
+    transform: scale(0);
   }
   100% {
     height: 60px;
-    background-color: var(--new-color); /* Change to the new color */
+    transform: scale(1);
+    background-color: var(--new-color); /* Transition to new color */
   }
 }
 
@@ -178,7 +179,7 @@ svg{
 }
 
 .bee-one{
-  top: 255px;
+  top: 37vh;
   margin-left: 250px;
   animation: moveBee 8s linear infinite;
   offset-path: var(--bee-path);
@@ -186,11 +187,18 @@ svg{
 }
 
 .bee-two{
-  top: 480px; 
-  transform: scaleY(-1);
-  margin-left: 60px;
+  top: 56vh; 
+  margin-left: 100px;
   animation: moveBee 8s linear infinite;
-  offset-path: var(--bee-two-path);
+  offset-path: var(--bee-path);
+  offset-rotate: auto;
+}
+
+.bee-three{
+  top: 76vh;
+  margin-left: 250px;
+  animation: moveBee 8s linear infinite;
+  offset-path: var(--bee-path);
   offset-rotate: auto;
 }
 
@@ -215,15 +223,20 @@ svg{
 }
 
 .path-one{
-  top: 250px;
+  top: 37vh;
 }
 
 .path-two {
-  top: 450px;
+  top: 56vh;
   left: -50px;
   transform: scaleX(-1);
   transform-origin: center top;
 }
+
+.path-three{
+  top: 76vh;
+}
+
 
 .path-wrapper{
   display: flex;

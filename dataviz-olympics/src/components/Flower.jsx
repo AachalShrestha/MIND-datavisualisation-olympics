@@ -10,10 +10,22 @@ const Flower = ({ selectedContinent = "all" }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [hoveredFlowerData, setHoveredFlower] = useState([]);
   const [hoverDivContent, setHoverDivContent] = useState();
+  const [animateFlowers, setAnimateFlowers] = useState(false);
 
   const navigate = useNavigate();
   console.log(selectedContinent);
 
+  /*   useEffect(() => {
+    if (selectedContinent) {
+      setAnimateFlowers(true);
+
+      // Reset the animation state after it finishes
+      setTimeout(() => {
+        setAnimateFlowers(false);
+      }, 1000); // Match the animation duration
+    }
+  }, [selectedContinent]);
+ */
   // Fetch data from JSON on component mount
   useEffect(() => {
     fetch(`/assets/data/${selectedContinent}.json`)
@@ -110,7 +122,7 @@ const Flower = ({ selectedContinent = "all" }) => {
                   key={index}
                   className={`petal ${selectedContinent} ${
                     isLessThan1 ? "less-than-one" : ""
-                  }`}
+                  } `} // Add animate class conditionally
                   style={{
                     transform: `rotate(${
                       (index * 360) / 100
@@ -170,6 +182,14 @@ const Flower = ({ selectedContinent = "all" }) => {
           </div>
           <div className="bee-wrapper">
             <img className="bee bee-two" src={bee} alt="bee" />
+          </div>
+        </div>
+        <div className="bee-path-wrapper">
+          <div className="path-wrapper">
+            <img className="path path-three" src={path} alt="path" />
+          </div>
+          <div className="bee-wrapper">
+            <img className="bee bee-three" src={bee} alt="bee" />
           </div>
         </div>
       </div>
