@@ -1,0 +1,212 @@
+{
+  "1896": {
+    "percentage": "0%",
+    "gold": "0%",
+    "silver": "0%",
+    "bronze": "0%",
+    "no-medal": "100%"
+  },
+  "1900": {
+    "percentage": "0%",
+    "gold": "0%",
+    "silver": "0%",
+    "bronze": "0%",
+    "no-medal": "100%"
+  },
+  "1904": {
+    "percentage": "0%",
+    "gold": "0%",
+    "silver": "0%",
+    "bronze": "0%",
+    "no-medal": "100%"
+  },
+  "1908": {
+    "percentage": "0%",
+    "gold": "0%",
+    "silver": "0%",
+    "bronze": "0%",
+    "no-medal": "100%"
+  },
+  "1912": {
+    "percentage": "0%",
+    "gold": "0%",
+    "silver": "0%",
+    "bronze": "0%",
+    "no-medal": "100%"
+  },
+  "1920": {
+    "percentage": "0.04%",
+    "gold": "0%",
+    "silver": "0%",
+    "bronze": "0%",
+    "no-medal": "100%"
+  },
+  "1924": {
+    "percentage": "0%",
+    "gold": "0%",
+    "silver": "0%",
+    "bronze": "0%",
+    "noMedal": "100%"
+  },
+  "1928": {
+    "percentage": "0.30%",
+    "gold": "0%",
+    "silver": "0%",
+    "bronze": "33%",
+    "noMedal": "67%"
+  },
+  "1932": {
+    "percentage": "0.14%",
+    "gold": "0%",
+    "silver": "0%",
+    "bronze": "40%",
+    "noMedal": "60%"
+  },
+  "1936": {
+    "percentage": "0.21%",
+    "gold": "0%",
+    "silver": "0%",
+    "bronze": "0%",
+    "noMedal": "100%"
+  },
+  "1948": {
+    "percentage": "0.03%",
+    "gold": "0%",
+    "silver": "0%",
+    "bronze": "0%",
+    "noMedal": "100%"
+  },
+  "1952": {
+    "percentage": "0.07%",
+    "gold": "22.2%",
+    "silver": "11.1%",
+    "bronze": "0%",
+    "noMedal": "66.7%"
+  },
+  "1956": {
+    "percentage": "0.2%",
+    "gold": "0.0%",
+    "silver": "0.0%",
+    "bronze": "28.6%",
+    "noMedal": "71.4%"
+  },
+  "1960": {
+    "percentage": "0.046%",
+    "gold": "0.0%",
+    "silver": "0.0%",
+    "bronze": "0.0%",
+    "noMedal": "100.0%"
+  },
+  "1964": {
+    "percentage": "0.087%",
+    "gold": "0.0%",
+    "silver": "0.0%",
+    "bronze": "0.0%",
+    "noMedal": "100.0%"
+  },
+  "1968": {
+    "percentage": "0.11%",
+    "gold": "0.0%",
+    "silver": "0.0%",
+    "bronze": "0.0%",
+    "noMedal": "100.0%"
+  },
+  "1972": {
+    "percentage": "0.16%",
+    "gold": "0.0%",
+    "silver": "0.0%",
+    "bronze": "0.0%",
+    "noMedal": "100.0%"
+  },
+  "1976": {
+    "percentage": "0.02%",
+    "gold": "0.0%",
+    "silver": "0.0%",
+    "bronze": "0.0%",
+    "noMedal": "100.0%"
+  },
+  "1980": {
+    "percentage": "0.15%",
+    "gold": "0.0%",
+    "silver": "0.0%",
+    "bronze": "0.0%",
+    "noMedal": "100.0%"
+  },
+  "1984": {
+    "percentage": "0.36%",
+    "gold": "2.6%",
+    "silver": "0.0%",
+    "bronze": "0.0%",
+    "noMedal": "97.4%"
+  },
+  "1988": {
+    "percentage": "0.37%",
+    "gold": "0.0%",
+    "silver": "0.0%",
+    "bronze": "0.0%",
+    "noMedal": "100.0%"
+  },
+  "1992": {
+    "percentage": "0.77%",
+    "gold": "1.8%",
+    "silver": "0.9%",
+    "bronze": "3.7%",
+    "noMedal": "93.6%"
+  },
+  "1996": {
+    "percentage": "0.77%",
+    "gold": "3.5%",
+    "silver": "4.4%",
+    "bronze": "3.5%",
+    "noMedal": "88.5%"
+  },
+  "2000": {
+    "percentage": "1.33%",
+    "gold": "1.1%",
+    "silver": "2.1%",
+    "bronze": "2.1%",
+    "noMedal": "94.7%"
+  },
+  "2004": {
+    "percentage": "1.47%",
+    "gold": "0.5%",
+    "silver": "2.6%",
+    "bronze": "1.0%",
+    "noMedal": "95.9%"
+  },
+  "2008": {
+    "percentage": "1.75%",
+    "gold": "1.7%",
+    "silver": "1.2%",
+    "bronze": "4.1%",
+    "noMedal": "93.0%"
+  },
+  "2012": {
+    "percentage": "1.78%",
+    "gold": "1.3%",
+    "silver": "2.1%",
+    "bronze": "1.7%",
+    "noMedal": "94.9%"
+  },
+  "2016": {
+    "percentage": "1.82%",
+    "gold": "2.0%",
+    "silver": "2.0%",
+    "bronze": "3.3%",
+    "noMedal": "92.7%"
+  },
+  "2020": {
+    "percentage": "2.26%",
+    "gold": "1.5%",
+    "silver": "1.5%",
+    "bronze": "1.8%",
+    "noMedal": "95.3%"
+  },
+  "2024": {
+    "percentage": "2.43%",
+    "gold": "1.7%",
+    "silver": "2.0%",
+    "bronze": "0.8%",
+    "noMedal": "95.5%"
+  }
+}
