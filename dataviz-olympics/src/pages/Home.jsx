@@ -13,11 +13,7 @@ function App() {
     <div>
       {/* Overlay controlled by isOpen */}
       <div
-        className="overlay"
-        style={{
-          backgroundColor: isOpen ? "rgba(0,0,0,0.5)" : "rgba(0,0,0,0)",
-          display: isOpen ? "block" : "none",
-        }}
+        className={`overlay ${isOpen ? "open" : ""}`}
         onClick={() => setIsOpen(false)} // Clicking on overlay closes the sidebar
       ></div>
       <div className="main-wrapper">
